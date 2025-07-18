@@ -1,6 +1,6 @@
 # openai_utils.py
 import os
-from openai import OpenAI
+import openai
 from dotenv import load_dotenv
 import logging
 
@@ -10,8 +10,8 @@ load_dotenv()
 # Setup logging (optional but helpful for debugging)
 logging.basicConfig(level=logging.INFO)
 
-# Initialize OpenAI client with your API key
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+# Set the OpenAI API key
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def build_prompt_from_session(session):
     """
